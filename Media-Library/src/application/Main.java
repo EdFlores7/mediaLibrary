@@ -12,8 +12,11 @@ import javafx.scene.layout.VBox;
 
 
 public class Main extends Application {
+	private Stage stage;
 	@Override
 	public void start(Stage primaryStage) {
+		stage = primaryStage;
+		
 		BorderPane pane = new BorderPane();
 		
 		Button btnViewLibrary = new Button("View Library");
@@ -40,6 +43,16 @@ public class Main extends Application {
 		Scene scene = new Scene(pane, 600, 300);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		
+		//btnViewLibrary.setOnAction(e ->switchScenes(createScene.viewLibrary()));
+		btnCreateLibrary.setOnAction(e ->switchScenes(createScene.createLibrary()));
+		//btnViewItems.setOnAction(e ->switchScenes(createScene.viewItems()));
+		//btnCreateMedia.setOnAction(e ->switchScenes(createScene.createMedia()));
+
+	}
+	
+	public void switchScenes(Scene scene) {
+		stage.setScene(scene);
 	}
 	
 	public static void main(String[] args) {
